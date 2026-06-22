@@ -106,42 +106,42 @@ export interface SiteContent {
 
 const schools: School[] = [
   {
-    name: "Sorbonne Universite",
+    name: "Sorbonne Université",
     href: "http://www.upmc.fr/",
     logo: "/img/logo-school-sorbonne.svg",
   },
   {
-    name: "Universite de Strasbourg",
+    name: "Université de Strasbourg",
     href: "http://www.unistra.fr/index.php?id=accueil",
     logo: "/img/logo-school-universite-strasbourg.svg",
   },
   {
-    name: "Universite Paris Diderot",
+    name: "Université Paris Diderot",
     href: "http://www.univ-paris-diderot.fr/",
     logo: "/img/logo-school-up7.svg",
   },
   {
-    name: "Universite Paris-Est Marne-la-Vallee",
+    name: "Université Paris-Est Marne-la-Vallée",
     href: "http://www.u-pem.fr/",
     logo: "/img/logo-school-upem.svg",
   },
   {
-    name: "Universite de Montpellier",
+    name: "Université de Montpellier",
     href: "http://www.umontpellier.fr/",
     logo: "/img/logo-school-universite-montpellier.svg",
   },
   {
-    name: "Universite de Franche-Comte",
+    name: "Université de Franche-Comté",
     href: "http://www.univ-fcomte.fr/",
     logo: "/img/logo-school-ufc.svg",
   },
   {
-    name: "Universite Toulouse III",
+    name: "Université Toulouse III",
     href: "http://www.univ-tlse3.fr/",
     logo: "/img/logo-school-universite-toulouse3.svg",
   },
   {
-    name: "Universite Paris-Sud",
+    name: "Université Paris-Sud",
     href: "http://www.u-psud.fr/",
     logo: "/img/logo-school-upsud.svg",
   },
@@ -152,183 +152,183 @@ export const content: Record<Language, SiteContent> = {
     meta: {
       title: "Edukera",
       description:
-        "Edukera est un assistant de demonstration dedie a l'enseignement de la logique et des mathematiques.",
+        "Edukera est un assistant de démonstration dédié à l'enseignement de la logique et des mathématiques.",
     },
     nav: {
       benefits: "Avantages",
       teachers: "Pour les enseignants",
-      usedBy: "Utilisee a",
-      launchApp: "Acceder a l'application",
+      usedBy: "Utilisée à",
+      launchApp: "Accéder à l'application",
     },
     hero: {
       eyebrow: "Assistant de preuve pour l'enseignement",
       title:
-        "Un assistant de demonstration dedie a l'enseignement de la Logique et des Maths",
+        "Un assistant de démonstration dédié à l'enseignement de la Logique et des Maths",
       highlighted: ["assistant", "enseignement", "Logique", "Maths"],
       description:
-        "Edukera transforme la preuve mathematique en experience interactive : les etudiants construisent, justifient et comprennent chaque etape.",
-      launchApp: "Acceder a l'application",
+        "Edukera transforme la preuve mathématique en expérience interactive : les étudiants construisent, justifient et comprennent chaque étape.",
+      launchApp: "Accéder à l'application",
       launchDoc: "Voir l'axiomatique",
       learnMore: "En savoir plus",
-      discover: "Cliquer pour decouvrir l'interface de demonstration",
+      discover: "Cliquer pour découvrir l'interface de démonstration",
       exerciseImage: "/img/exercise_fr.png",
     },
     benefits: {
-      title: "Avantages pedagogiques",
+      title: "Avantages pédagogiques",
       items: [
         {
           title: "Former",
           description:
-            "L'etudiant comprend comment fonctionne une demonstration mathematique grace a l'ergonomie de la copie numerique.",
+            "L'étudiant comprend comment fonctionne une démonstration mathématique grâce à l'ergonomie de la copie numérique.",
           icon: "/img/exercise.svg",
         },
         {
           title: "Clarifier",
           description:
-            "Toutes les regles de calcul et de raisonnement necessaires sont mises a disposition dans la boite a theoremes.",
+            "Toutes les règles de calcul et de raisonnement nécessaires sont mises à disposition dans la boîte à théorèmes.",
           icon: "/img/bulb.svg",
         },
         {
-          title: "Entrainer",
+          title: "Entraîner",
           description:
-            "L'etudiant approfondit sa maitrise des notions et augmente le nombre d'exercices resolus grace a l'assistance fournie.",
+            "L'étudiant approfondit sa maîtrise des notions et augmente le nombre d'exercices résolus grâce à l'assistance fournie.",
           icon: "/img/lightning.svg",
         },
       ],
     },
     teachers: {
-      title: "Creez une classe et suivez l'activite des etudiants",
+      title: "Créez une classe et suivez l'activité des étudiants",
       bullets: [
         "Choisissez les exercices",
-        "Integrez nativement la classe au LMS (Moodle, Canvas, ...)",
-        "Creez des devoirs a la maison ou sur table",
-        "Accedez aux rapports d'activite des etudiants",
+        "Intégrez nativement la classe au LMS (Moodle, Canvas, ...)",
+        "Créez des devoirs à la maison ou sur table",
+        "Accédez aux rapports d'activité des étudiants",
       ],
-      button: "Creer une classe",
+      button: "Créer une classe",
       price: "10€",
-      priceDetail: "HT / an / etudiant",
-      limit: "Jusqu'a 90 etudiants.",
-      footerBefore: "Au dela de 90 etudiants,",
+      priceDetail: "HT / an / étudiant",
+      limit: "Jusqu'à 90 étudiants.",
+      footerBefore: "Au-delà de 90 étudiants,",
       footerLink: "nous contacter",
     },
     quote: {
-      before: "Les mathematiques sont un jeu qui s'exerce selon des ",
-      highlight: "regles simples",
+      before: "Les mathématiques sont un jeu qui s'exerce selon des ",
+      highlight: "règles simples",
       after:
-        " avec des symboles qui n'ont en soi aucune importance particuliere.",
+        " avec des symboles qui n'ont en soi aucune importance particulière.",
       author: "David Hilbert",
     },
     train: {
-      title: "Entrainer",
+      title: "Entraîner",
       description:
-        "Actuellement 500+ exercices dans trois thematiques sont disponibles, et d'autres sont en preparation.",
+        "Actuellement 500+ exercices dans trois thématiques sont disponibles, et d'autres sont en préparation.",
       chapters: [
         {
-          title: "Calcul algebrique",
+          title: "Calcul algébrique",
           description:
-            "L'etudiant apprend a mener des calculs algebriques avec les operations fondamentales.",
+            "L'étudiant apprend à mener des calculs algébriques avec les opérations fondamentales.",
           icon: "/img/operators.svg",
         },
         {
           title: "Logique",
           description:
-            "L'etudiant maitrise les elements fondamentaux de la deduction naturelle : connecteurs, quantificateurs et logique classique.",
+            "L'étudiant maîtrise les éléments fondamentaux de la déduction naturelle : connecteurs, quantificateurs et logique classique.",
           icon: "/img/puzzle.svg",
         },
         {
           title: "Ensembles",
           description:
-            "L'etudiant maitrise les proprietes des objets mathematiques fondamentaux : relations, fonctions et ensembles.",
+            "L'étudiant maîtrise les propriétés des objets mathématiques fondamentaux : relations, fonctions et ensembles.",
           icon: "/img/sets.svg",
         },
       ],
     },
     usedBy: {
-      title: "Utilisee a",
+      title: "Utilisée à",
       schools,
     },
     coq: {
       prefix: "Edukera embarque",
       link: "l'assistant de preuve Coq",
-      suffix: "developpe par Inria.",
+      suffix: "développé par Inria.",
     },
     footer: {
-      social: "Reseaux sociaux",
+      social: "Réseaux sociaux",
       contact: "Contact",
-      legal: "Mentions legales",
-      terms: "Conditions generales",
+      legal: "Mentions légales",
+      terms: "Conditions générales",
       copyright: "© edukera 2013 - 2026",
     },
     legal: {
-      title: "Mentions legales",
-      editor: "Editeur du site",
+      title: "Mentions légales",
+      editor: "Éditeur du site",
       company: [
         "edukera SAS",
-        "Societe par actions simplifiee au capital de 26 417,00 euros",
+        "Société par actions simplifiée au capital de 26 417,00 euros",
         "RCS de Nanterre : 793 014 333",
-        "Numero de TVA intracommunautaire : FR 59 793014333",
+        "Numéro de TVA intracommunautaire : FR 59 793014333",
         "Email : contact@edukera.com",
         "Directeur de publication : Benoit Rognier",
       ],
-      headquarters: "Siege social",
+      headquarters: "Siège social",
       address: ["84, rue Perronet", "92 200 Neuilly-sur-Seine"],
-      hosting: "Hebergement",
+      hosting: "Hébergement",
       hostingDetails: [
         "1&1 Internet SARL",
         "7, place de la Gare BP 70109, 57201 Sarreguemines Cedex",
       ],
     },
     terms: {
-      title: "Conditions generales",
+      title: "Conditions générales",
       intro: [
-        "Derniere mise a jour : 1er janvier 2018",
-        "Ces conditions generales regissent votre relation avec le site web app.edukera.com, gere par Edukera.",
+        "Dernière mise à jour : 1er janvier 2018",
+        "Ces conditions générales régissent votre relation avec le site web app.edukera.com, géré par Edukera.",
         "Veuillez lire ces Conditions attentivement avant d'utiliser le Service.",
       ],
       sections: [
         {
           title: "Achats",
           paragraphs: [
-            "Si vous souhaitez acheter un produit ou service, certaines informations pertinentes a l'achat peuvent vous etre demandees.",
-            "Nous nous reservons le droit de refuser ou d'annuler une commande en cas d'erreur, d'indisponibilite, de fraude ou de transaction suspecte.",
+            "Si vous souhaitez acheter un produit ou service, certaines informations pertinentes à l'achat peuvent vous être demandées.",
+            "Nous nous réservons le droit de refuser ou d'annuler une commande en cas d'erreur, d'indisponibilité, de fraude ou de transaction suspecte.",
           ],
         },
         {
           title: "Abonnements",
           paragraphs: [
-            "Certains aspects du Service sont fournis par abonnement et factures par anticipation selon un cycle annuel.",
-            "L'abonnement est renouvele automatiquement sauf annulation par l'utilisateur ou par Edukera.",
+            "Certains aspects du Service sont fournis par abonnement et facturés par anticipation selon un cycle annuel.",
+            "L'abonnement est renouvelé automatiquement sauf annulation par l'utilisateur ou par Edukera.",
           ],
         },
         {
           title: "Comptes",
           paragraphs: [
-            "Lorsque vous creez un compte, vous devez fournir des informations exactes, completes et a jour.",
-            "Vous etes responsable de la protection de votre mot de passe et de toute activite realisee avec votre compte.",
+            "Lorsque vous créez un compte, vous devez fournir des informations exactes, complètes et à jour.",
+            "Vous êtes responsable de la protection de votre mot de passe et de toute activité réalisée avec votre compte.",
           ],
         },
         {
-          title: "Propriete intellectuelle",
+          title: "Propriété intellectuelle",
           paragraphs: [
-            "Le Service et son contenu original restent la propriete exclusive d'Edukera et de ses concedants.",
+            "Le Service et son contenu original restent la propriété exclusive d'Edukera et de ses concédants.",
           ],
         },
         {
           title: "Liens vers d'autres sites Web",
           paragraphs: [
-            "Le Service peut contenir des liens vers des sites tiers qui ne sont ni possedes ni controles par Edukera.",
+            "Le Service peut contenir des liens vers des sites tiers qui ne sont ni possédés ni contrôlés par Edukera.",
           ],
         },
         {
           title: "Loi applicable",
           paragraphs: [
-            "Ces conditions sont regies et interpretees conformement aux lois francaises.",
+            "Ces conditions sont régies et interprétées conformément aux lois françaises.",
           ],
         },
         {
-          title: "Coordonnees",
+          title: "Coordonnées",
           paragraphs: [
-            "Pour toute question au sujet de ces Conditions, contactez-nous a contact@edukera.com.",
+            "Pour toute question au sujet de ces Conditions, contactez-nous à contact@edukera.com.",
           ],
         },
       ],
