@@ -33,6 +33,7 @@ export interface SiteContent {
   nav: {
     benefits: string
     teachers: string
+    training: string
     usedBy: string
     launchApp: string
   }
@@ -84,7 +85,7 @@ export interface SiteContent {
   coq: {
     prefix: string
     link: string
-    suffix: string
+    developedBy: string
   }
   footer: {
     social: string
@@ -162,6 +163,7 @@ export const content: Record<Language, SiteContent> = {
     nav: {
       benefits: "Avantages",
       teachers: "Pour les enseignants",
+      training: "Entraîner",
       usedBy: "Utilisée à",
       launchApp: "Accéder à l'application",
     },
@@ -173,7 +175,7 @@ export const content: Record<Language, SiteContent> = {
       description:
         "Edukera transforme la preuve mathématique en expérience interactive : les étudiants construisent, justifient et comprennent chaque étape.",
       launchApp: "Accéder à l'application",
-      launchDoc: "Voir l'axiomatique",
+      launchDoc: "Voir l'axiomatique logique",
       learnMore: "En savoir plus",
       discover: "Découvrir l'interface de l'assistant de preuve",
       discoverDescription:
@@ -260,8 +262,8 @@ export const content: Record<Language, SiteContent> = {
     },
     coq: {
       prefix: "Edukera embarque",
-      link: "l'assistant de preuve Coq",
-      suffix: "développé par Inria.",
+      link: "l'assistant de preuve Rocq",
+      developedBy: "Développé par",
     },
     footer: {
       social: "Réseaux sociaux",
@@ -354,6 +356,7 @@ export const content: Record<Language, SiteContent> = {
     nav: {
       benefits: "Benefits",
       teachers: "For teachers",
+      training: "Practice",
       usedBy: "Used at",
       launchApp: "Launch application",
     },
@@ -364,7 +367,7 @@ export const content: Record<Language, SiteContent> = {
       description:
         "Edukera turns mathematical proof into an interactive learning experience where students build, justify and understand every step.",
       launchApp: "Launch application",
-      launchDoc: "See axiomatics",
+      launchDoc: "See logic axiomatics",
       learnMore: "Learn more",
       discover: "Discover the proof assistant interface",
       discoverDescription:
@@ -450,8 +453,8 @@ export const content: Record<Language, SiteContent> = {
     },
     coq: {
       prefix: "Edukera embeds",
-      link: "the Coq proof assistant",
-      suffix: "developed by Inria.",
+      link: "the Rocq proof assistant",
+      developedBy: "Developed by",
     },
     footer: {
       social: "Social",

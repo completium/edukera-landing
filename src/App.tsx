@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
 import {
-  BookOpenCheckIcon,
   CheckCircle2Icon,
   ExternalLinkIcon,
   MailIcon,
@@ -8,8 +7,8 @@ import {
 
 import { content, LANGUAGES, type Language, type SiteContent } from "@/content"
 import { detectInitialLanguage, persistLanguage } from "@/lib/language"
+import { useActiveSection } from "@/lib/use-active-section"
 import { cn } from "@/lib/utils"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Marquee } from "@/components/ui/marquee"
@@ -33,7 +32,17 @@ import { ProofMockup } from "@/components/proof-mockup"
 const appUrl = "https://app.edukera.com/"
 const docsUrl = "https://app.edukera.com/?doc=1"
 const quickTourUrl = "https://app.edukera.com/?qt=1"
+const rocqUrl = "https://rocq-prover.org/"
 const contactHref = "mailto:contact@edukera.com"
+
+const HOME_NAV_SECTIONS = [
+  { id: "intro", label: (copy: SiteContent) => copy.nav.benefits },
+  { id: "price", label: (copy: SiteContent) => copy.nav.teachers },
+  { id: "train", label: (copy: SiteContent) => copy.nav.training },
+  { id: "used_by", label: (copy: SiteContent) => copy.nav.usedBy },
+] as const
+
+const HOME_SECTION_IDS = HOME_NAV_SECTIONS.map((section) => section.id)
 
 export function App() {
   const [language, setLanguage] = useState<Language>(() =>
@@ -129,6 +138,7 @@ function SiteHeader({
   const isHome = route === "home"
   const isScrolled = useIsScrolled()
   const showLaunchApp = !isHome || isScrolled
+  const activeSection = useActiveSection(HOME_SECTION_IDS)
 
   return (
     <header
@@ -152,30 +162,23 @@ function SiteHeader({
         {isHome && isScrolled && (
           <NavigationMenu className="hidden md:flex" viewport={false}>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="#intro"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  {copy.nav.benefits}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="#price"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  {copy.nav.teachers}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="#used_by"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  {copy.nav.usedBy}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              {HOME_NAV_SECTIONS.map((section) => (
+                <NavigationMenuItem key={section.id}>
+                  <NavigationMenuLink
+                    href={`#${section.id}`}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      activeSection === section.id &&
+                        "rounded-none border-b-2 !border-b-[#00ace7] !text-primary hover:bg-transparent hover:!text-primary focus:bg-transparent focus:!text-primary"
+                    )}
+                    aria-current={
+                      activeSection === section.id ? "true" : undefined
+                    }
+                  >
+                    {section.label(copy)}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
         )}
@@ -257,12 +260,6 @@ function HeroSection({ copy }: { copy: SiteContent }) {
                 <ExternalLinkIcon data-icon="inline-end" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href={docsUrl} target="_blank" rel="noreferrer">
-                {copy.hero.launchDoc}
-                <ExternalLinkIcon data-icon="inline-end" />
-              </a>
-            </Button>
             <Button asChild size="lg" variant="ghost">
               <a href="#intro">{copy.hero.learnMore}</a>
             </Button>
@@ -284,12 +281,20 @@ function HeroSection({ copy }: { copy: SiteContent }) {
                 reference: copy.hero.justifReference,
               }}
             />
-            <Button asChild size="lg">
-              <a href={quickTourUrl} target="_blank" rel="noreferrer">
-                {copy.hero.tutorialCta}
-                <ExternalLinkIcon data-icon="inline-end" />
-              </a>
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <Button asChild size="lg" variant="outline">
+                <a href={docsUrl} target="_blank" rel="noreferrer">
+                  {copy.hero.launchDoc}
+                  <ExternalLinkIcon data-icon="inline-end" />
+                </a>
+              </Button>
+              <Button asChild size="lg">
+                <a href={quickTourUrl} target="_blank" rel="noreferrer">
+                  {copy.hero.tutorialCta}
+                  <ExternalLinkIcon data-icon="inline-end" />
+                </a>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -416,11 +421,11 @@ function TrainingSection({ copy }: { copy: SiteContent }) {
             <Card key={chapter.title}>
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="grid size-20 shrink-0 place-items-center rounded-full bg-background">
+                  <div className="flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-background">
                     <img
                       src={chapter.icon}
                       alt=""
-                      className="size-12 object-contain"
+                      className="size-[3.25rem] object-contain"
                     />
                   </div>
                   <div className="flex flex-col gap-1">
@@ -478,31 +483,34 @@ function UsedBySection({ copy }: { copy: SiteContent }) {
 function CoqSection({ copy }: { copy: SiteContent }) {
   return (
     <section className="border-y bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-4 md:px-8">
-        <Alert className="rounded-none border-0 bg-transparent p-0 text-card-foreground">
-          <BookOpenCheckIcon />
-          <AlertTitle>
-            {copy.coq.prefix}{" "}
-            <a
-              href="https://coq.inria.fr/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary"
-            >
-              {copy.coq.link}
-            </a>
-          </AlertTitle>
-          <AlertDescription className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <span>{copy.coq.suffix}</span>
-            <a href="https://www.inria.fr/" target="_blank" rel="noreferrer">
-              <img
-                src="/img/logo-inria-institutionnel-couleur.jpg"
-                alt="Inria"
-                className="h-10 w-auto"
-              />
-            </a>
-          </AlertDescription>
-        </Alert>
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-3 gap-y-2 px-4 py-4 text-sm md:px-8">
+        <span className="font-medium">
+          {copy.coq.prefix}{" "}
+          <a
+            href={rocqUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 font-medium !text-[#ff540a] hover:!text-[#e04a09]"
+          >
+            {copy.coq.link}
+            <ExternalLinkIcon className="size-4 shrink-0" />
+          </a>
+        </span>
+        <a href={rocqUrl} target="_blank" rel="noreferrer">
+          <img
+            src="/img/logo-rocq.svg"
+            alt="Rocq proof assistant"
+            className="h-7 w-auto"
+          />
+        </a>
+        <span>{copy.coq.developedBy}</span>
+        <a href="https://www.inria.fr/" target="_blank" rel="noreferrer">
+          <img
+            src="/img/logo-inria-institutionnel-couleur.jpg"
+            alt="Inria"
+            className="h-9 w-auto"
+          />
+        </a>
       </div>
     </section>
   )
@@ -629,7 +637,7 @@ function SiteFooter({ copy }: { copy: SiteContent }) {
           <div className="flex flex-col gap-2 text-sm">
             <h2 className="font-medium">{copy.footer.social}</h2>
             <a href="https://twitter.com/edukera" target="_blank" rel="noreferrer">
-              Twitter
+              X
             </a>
             <a
               href="https://www.linkedin.com/company/edukera"
