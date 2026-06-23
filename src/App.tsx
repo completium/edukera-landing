@@ -10,7 +10,6 @@ import { content, LANGUAGES, type Language, type SiteContent } from "@/content"
 import { detectInitialLanguage, persistLanguage } from "@/lib/language"
 import { cn } from "@/lib/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Marquee } from "@/components/ui/marquee"
@@ -29,6 +28,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Separator } from "@/components/ui/separator"
+import { ProofMockup } from "@/components/proof-mockup"
 
 const appUrl = "https://app.edukera.com/"
 const docsUrl = "https://app.edukera.com/?doc=1"
@@ -149,7 +149,7 @@ function SiteHeader({
           <img src="/img/logo.png" alt="Edukera" className="h-10 w-auto" />
         </a>
 
-        {isHome && (
+        {isHome && isScrolled && (
           <NavigationMenu className="hidden md:flex" viewport={false}>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -271,32 +271,25 @@ function HeroSection({ copy }: { copy: SiteContent }) {
 
         <Card className="border-transparent bg-card/60 shadow-2xl ring-0">
           <CardHeader>
+            <Badge variant="secondary" className="mb-2 w-fit">
+              {copy.hero.tutorialBadge}
+            </Badge>
             <CardTitle>{copy.hero.discover}</CardTitle>
-            <CardDescription>
-              {copy.hero.highlighted.join(" · ")}
-            </CardDescription>
+            <CardDescription>{copy.hero.discoverDescription}</CardDescription>
           </CardHeader>
-          <CardContent>
-            <a
-              href={quickTourUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="block overflow-hidden rounded-xl border bg-primary"
-              aria-label={copy.hero.discover}
-            >
-              <AspectRatio ratio={16 / 9}>
-                <div className="relative size-full">
-                  <img
-                    src={copy.hero.exerciseImage}
-                    alt={copy.hero.discover}
-                    className="size-full object-cover"
-                  />
-                  <div className="absolute inset-0 grid place-items-center">
-                    <img src="/img/play.svg" alt="" className="size-24" />
-                  </div>
-                </div>
-              </AspectRatio>
-            </a>
+          <CardContent className="flex flex-col gap-4">
+            <ProofMockup
+              labels={{
+                hypothesis: copy.hero.justifHypothesis,
+                reference: copy.hero.justifReference,
+              }}
+            />
+            <Button asChild size="lg">
+              <a href={quickTourUrl} target="_blank" rel="noreferrer">
+                {copy.hero.tutorialCta}
+                <ExternalLinkIcon data-icon="inline-end" />
+              </a>
+            </Button>
           </CardContent>
         </Card>
       </div>

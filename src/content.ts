@@ -45,7 +45,12 @@ export interface SiteContent {
     launchDoc: string
     learnMore: string
     discover: string
+    discoverDescription: string
     exerciseImage: string
+    tutorialBadge: string
+    tutorialCta: string
+    justifHypothesis: string
+    justifReference: string
   }
   benefits: {
     title: string
@@ -170,8 +175,14 @@ export const content: Record<Language, SiteContent> = {
       launchApp: "Accéder à l'application",
       launchDoc: "Voir l'axiomatique",
       learnMore: "En savoir plus",
-      discover: "Cliquer pour découvrir l'interface de démonstration",
+      discover: "Découvrir l'interface de l'assistant de preuve",
+      discoverDescription:
+        "Découvrez l'assistant pour construire la preuve de A ⇒ (B ⇒ A) ci-dessous, à l'aide d'un tutoriel guidé pas à pas.",
       exerciseImage: "/img/exercise_fr.png",
+    tutorialBadge: "Tutoriel guidé pas à pas",
+    tutorialCta: "Démarrer le tutoriel guidé",
+    justifHypothesis: "hypothèse",
+    justifReference: "référence",
     },
     benefits: {
       title: "Avantages pédagogiques",
@@ -355,8 +366,14 @@ export const content: Record<Language, SiteContent> = {
       launchApp: "Launch application",
       launchDoc: "See axiomatics",
       learnMore: "Learn more",
-      discover: "Click to discover the proof assistant interface",
+      discover: "Discover the proof assistant interface",
+      discoverDescription:
+        "Discover the assistant to build the proof of A ⇒ (B ⇒ A) below, with a step-by-step guided tutorial.",
       exerciseImage: "/img/exercise_en.png",
+    tutorialBadge: "Step-by-step guided tutorial",
+    tutorialCta: "Start the guided tutorial",
+    justifHypothesis: "hypothesis",
+    justifReference: "reference",
     },
     benefits: {
       title: "Pedagogical benefits",
