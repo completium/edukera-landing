@@ -382,7 +382,7 @@ function QuoteSection({ copy }: { copy: SiteContent }) {
       className="dark px-4 py-20 text-foreground md:px-8"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(15,23,32,0.88), rgba(15,23,32,0.88)), url('/img/parallax1.png')",
+          "linear-gradient(rgba(15,23,32,0.72), rgba(15,23,32,0.72)), url('/img/parallax1.png')",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
@@ -446,10 +446,10 @@ function UsedBySection({ copy }: { copy: SiteContent }) {
   return (
     <section
       id="used_by"
-      className="px-4 py-20 md:px-8"
+      className="flex min-h-[32rem] items-center px-4 md:min-h-[36rem] md:px-8"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.78)), url('/img/amphi-small.jpg')",
+          "linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.62)), url('/img/amphi-small.jpg')",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
